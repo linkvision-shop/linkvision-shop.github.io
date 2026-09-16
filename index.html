@@ -2,1466 +2,360 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>LINKVISION SHOP</title>
 
 <style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
+*{box-sizing:border-box;margin:0;padding:0}
 body{
-    background:#050505;
-    color:#fff;
-    font-family:Arial,Helvetica,sans-serif;
+  background:#050505;color:#fff;font-family:Arial,Helvetica,sans-serif;
+  min-height:100vh
 }
-
-/* ================= HEADER ================= */
-
 header{
-    position:sticky;
-    top:0;
-    z-index:999;
-    background:rgba(5,5,5,.95);
-    backdrop-filter:blur(18px);
-    border-bottom:1px solid #1c1c1c;
+  position:sticky;top:0;z-index:20;
+  background:rgba(5,5,5,.92);backdrop-filter:blur(15px);
+  border-bottom:1px solid #191919
 }
-
 .nav{
-    max-width:1300px;
-    min-height:78px;
-    margin:auto;
-    padding:0 25px;
-
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:25px;
+  max-width:1250px;margin:auto;padding:20px 25px;
+  display:flex;align-items:center;justify-content:space-between;gap:20px
 }
-
-.logo{
-    text-decoration:none;
-    white-space:nowrap;
-    font-size:22px;
-    font-weight:900;
-    letter-spacing:2px;
+.logo{font-size:22px;font-weight:900;letter-spacing:2px}
+.logo span{color:#777}
+.nav-links{display:flex;gap:25px;list-style:none}
+.nav-links a{color:#aaa;text-decoration:none;font-size:13px;font-weight:700}
+.nav-links a:hover{color:#fff}
+.languages button{
+  border:0;background:none;color:#777;cursor:pointer;
+  font-weight:700;margin-left:8px
 }
-
-.logo-main{
-    color:#fff;
-}
-
-.logo-shop{
-    color:#666;
-    margin-left:7px;
-}
-
-.nav-links{
-    display:flex;
-    align-items:center;
-    gap:24px;
-}
-
-.nav-links a{
-    color:#888;
-    text-decoration:none;
-    font-size:11px;
-    font-weight:800;
-    letter-spacing:1.2px;
-    transition:.2s;
-}
-
-.nav-links a:hover{
-    color:#fff;
-}
-
-.languages{
-    display:flex;
-    gap:5px;
-}
-
-.lang{
-    border:1px solid #292929;
-    background:#0b0b0b;
-    color:#666;
-    padding:7px 10px;
-    cursor:pointer;
-    font-size:10px;
-    font-weight:800;
-}
-
-.lang.active{
-    color:#fff;
-    border-color:#777;
-}
-
-/* ================= HERO ================= */
+.languages button.active{color:#fff}
 
 .hero{
-    min-height:520px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    text-align:center;
-
-    padding:80px 20px;
-
-    background:
-    radial-gradient(
-        circle at 50% 35%,
-        #202020 0%,
-        #0b0b0b 35%,
-        #050505 72%
-    );
+  max-width:1250px;margin:auto;padding:100px 25px 65px
 }
-
-.hero-content{
-    max-width:900px;
-}
-
-.hero-small{
-    color:#666;
-    font-size:11px;
-    font-weight:800;
-    letter-spacing:5px;
-    margin-bottom:22px;
-}
-
+.hero small{color:#777;letter-spacing:4px;font-size:11px}
 .hero h1{
-    font-size:clamp(58px,10vw,115px);
-    line-height:.88;
-    letter-spacing:-6px;
-    font-weight:900;
+  font-size:clamp(45px,8vw,90px);line-height:.9;
+  margin:20px 0;font-weight:900;letter-spacing:-4px
 }
+.hero p{color:#777;max-width:520px;line-height:1.7}
 
-.hero h1 span{
-    color:#777;
+.filters{
+  max-width:1250px;margin:auto;padding:0 25px 35px;
+  display:flex;gap:10px;flex-wrap:wrap
 }
-
-.hero p{
-    max-width:560px;
-    margin:32px auto;
-    color:#777;
-    font-size:14px;
-    line-height:1.7;
-}
-
-.hero-btn{
-    display:inline-block;
-    padding:15px 25px;
-    border:1px solid #444;
-    color:#fff;
-    text-decoration:none;
-    font-size:11px;
-    font-weight:800;
-    letter-spacing:1px;
-    transition:.25s;
-}
-
-.hero-btn:hover{
-    background:#fff;
-    color:#000;
-}
-
-/* ================= CATEGORY BAR ================= */
-
-.category-bar{
-    background:#080808;
-    border-top:1px solid #171717;
-    border-bottom:1px solid #171717;
-}
-
-.category-inner{
-    max-width:1300px;
-    margin:auto;
-    padding:17px 25px;
-
-    display:flex;
-    gap:9px;
-
-    overflow-x:auto;
-}
-
 .filter{
-    flex:0 0 auto;
-
-    background:#101010;
-    color:#777;
-
-    border:1px solid #242424;
-
-    padding:10px 16px;
-
-    cursor:pointer;
-
-    font-size:10px;
-    font-weight:800;
-    letter-spacing:1px;
-
-    transition:.2s;
+  background:#0c0c0c;border:1px solid #222;color:#888;
+  padding:10px 16px;border-radius:30px;cursor:pointer;
+  font-size:11px;font-weight:800
 }
+.filter:hover,.filter.active{background:#fff;color:#000}
 
-.filter:hover,
-.filter.active{
-    color:#fff;
-    border-color:#777;
+main{max-width:1250px;margin:auto;padding:0 25px 80px}
+
+.category-title{
+  margin:45px 0 20px;
+  font-size:12px;letter-spacing:3px;color:#777;
+  text-transform:uppercase
 }
-
-/* ================= SECTIONS ================= */
-
-.section{
-    max-width:1300px;
-    margin:auto;
-    padding:95px 25px;
-    scroll-margin-top:90px;
-}
-
-.section-head{
-    display:flex;
-    align-items:end;
-    justify-content:space-between;
-
-    gap:20px;
-
-    margin-bottom:35px;
-}
-
-.section-head h2{
-    font-size:36px;
-    letter-spacing:-1.5px;
-}
-
-.section-head p{
-    color:#555;
-    font-size:10px;
-    font-weight:800;
-    letter-spacing:3px;
-}
-
-.section-divider{
-    max-width:1250px;
-    height:1px;
-    background:#171717;
-    margin:auto;
-}
-
-/* ================= PRODUCTS ================= */
-
 .products{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:18px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px
 }
-
 .product{
-    background:#0b0b0b;
-    border:1px solid #191919;
-    overflow:hidden;
-
-    transition:.3s;
+  background:#0a0a0a;border:1px solid #171717;
+  border-radius:14px;overflow:hidden;
+  transition:.25s
 }
-
-.product:hover{
-    transform:translateY(-5px);
-    border-color:#363636;
-}
+.product:hover{transform:translateY(-5px);border-color:#333}
 
 .image-box{
-    width:100%;
-    aspect-ratio:1/1;
-
-    background:#111;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    overflow:hidden;
-
-    position:relative;
+  height:300px;background:#0e0e0e;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden
 }
-
 .product-image{
-    width:100%;
-    height:100%;
-
-    object-fit:cover;
-
-    display:block;
-
-    position:relative;
-    z-index:2;
+  width:100%;height:100%;object-fit:cover
 }
-
 .image-fallback{
-    position:absolute;
-    inset:0;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    color:#292929;
-
-    font-size:23px;
-    font-weight:900;
-    letter-spacing:3px;
+  color:#333;font-size:12px;letter-spacing:2px
 }
 
-.product-info{
-    padding:21px;
+.info{padding:17px}
+.tag{
+  color:#666;font-size:9px;font-weight:800;
+  letter-spacing:2px;text-transform:uppercase
 }
-
-.category{
-    color:#555;
-
-    font-size:9px;
-    font-weight:800;
-
-    letter-spacing:2px;
-
-    margin-bottom:10px;
+.name{
+  font-size:15px;font-weight:800;
+  margin:9px 0 17px;min-height:36px
 }
-
-.product h3{
-    font-size:16px;
-    line-height:1.4;
-
-    margin-bottom:18px;
-
-    min-height:45px;
+.bottom{
+  display:flex;align-items:center;justify-content:space-between;gap:10px
 }
-
-.product-bottom{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-
-    gap:12px;
+.price{font-size:13px;color:#aaa}
+.view{
+  background:#fff;color:#000;text-decoration:none;
+  padding:9px 13px;border-radius:7px;
+  font-size:11px;font-weight:900
 }
-
-.price{
-    color:#999;
-    font-size:12px;
-}
-
-.view-btn{
-    display:inline-block;
-
-    color:#fff;
-    text-decoration:none;
-
-    border:1px solid #333;
-
-    padding:10px 15px;
-
-    font-size:10px;
-    font-weight:800;
-
-    transition:.2s;
-}
-
-.view-btn:hover{
-    background:#fff;
-    color:#000;
-}
-
-/* ================= FOOTER ================= */
+.view:hover{background:#ddd}
 
 footer{
-    background:#070707;
-
-    border-top:1px solid #191919;
-
-    padding:65px 25px 35px;
+  border-top:1px solid #181818;
+  color:#555;text-align:center;padding:30px 20px;
+  font-size:10px;letter-spacing:1px
 }
-
-.footer-inner{
-    max-width:1300px;
-    margin:auto;
-
-    display:flex;
-    justify-content:space-between;
-
-    gap:35px;
-}
-
-.footer-logo{
-    font-size:20px;
-    font-weight:900;
-    letter-spacing:2px;
-}
-
-.footer-logo span{
-    color:#666;
-}
-
-.footer-text{
-    max-width:430px;
-
-    color:#555;
-
-    font-size:11px;
-    line-height:1.7;
-}
-
-.footer-bottom{
-    max-width:1300px;
-
-    margin:45px auto 0;
-
-    padding-top:20px;
-
-    border-top:1px solid #151515;
-
-    color:#444;
-
-    font-size:9px;
-}
-
-/* ================= RESPONSIVE ================= */
 
 @media(max-width:950px){
-
-    .nav-links{
-        gap:12px;
-    }
-
-    .nav-links a{
-        font-size:9px;
-    }
-
-    .products{
-        grid-template-columns:repeat(2,1fr);
-    }
+  .products{grid-template-columns:repeat(3,1fr)}
 }
-
-@media(max-width:650px){
-
-    .nav{
-        padding:18px;
-        flex-wrap:wrap;
-    }
-
-    .nav-links{
-        order:3;
-        width:100%;
-
-        overflow-x:auto;
-
-        padding-bottom:3px;
-    }
-
-    .hero{
-        min-height:450px;
-    }
-
-    .hero h1{
-        letter-spacing:-4px;
-    }
-
-    .section{
-        padding:65px 15px;
-    }
-
-    .products{
-        grid-template-columns:1fr;
-    }
-
-    .footer-inner{
-        flex-direction:column;
-    }
+@media(max-width:700px){
+  .nav-links{display:none}
+  .hero{padding-top:70px}
+  .products{grid-template-columns:repeat(2,1fr);gap:12px}
+  .image-box{height:230px}
 }
-
+@media(max-width:430px){
+  .products{grid-template-columns:1fr}
+  .image-box{height:300px}
+}
 </style>
 </head>
 
 <body>
 
-
-<!-- ================================================= -->
-<!-- HEADER -->
-<!-- ================================================= -->
-
 <header>
+  <nav class="nav">
+    <div class="logo">LINKVISION <span>SHOP</span></div>
 
-<nav class="nav">
+    <ul class="nav-links">
+      <li><a href="#unisex">UNISEX</a></li>
+      <li><a href="#men">HERREN / MEN</a></li>
+      <li><a href="#women">DAMEN / WOMEN</a></li>
+      <li><a href="#accessories">ACCESSORIES</a></li>
+      <li><a href="#perfume">PARFUM / PERFUME</a></li>
+    </ul>
 
-<a href="#" class="logo">
-    <span class="logo-main">LINKVISION</span>
-    <span class="logo-shop">SHOP</span>
-</a>
-
-<div class="nav-links">
-
-<a href="#unisex"
-data-en="UNISEX"
-data-de="UNISEX">
-UNISEX
-</a>
-
-<a href="#men"
-data-en="MEN"
-data-de="HERREN">
-MEN
-</a>
-
-<a href="#women"
-data-en="WOMEN"
-data-de="DAMEN">
-WOMEN
-</a>
-
-<a href="#accessories"
-data-en="ACCESSORIES"
-data-de="ACCESSOIRES">
-ACCESSORIES
-</a>
-
-<a href="#perfume"
-data-en="PERFUME"
-data-de="PARFUM">
-PERFUME
-</a>
-
-</div>
-
-
-<div class="languages">
-
-<button class="lang active"
-onclick="setLanguage('en')">
-EN
-</button>
-
-<button class="lang"
-onclick="setLanguage('de')">
-DE
-</button>
-
-</div>
-
-</nav>
-
+    <div class="languages">
+      <button id="enBtn" class="active" onclick="setLanguage('en')">EN</button>
+      <button id="deBtn" onclick="setLanguage('de')">DE</button>
+    </div>
+  </nav>
 </header>
 
-
-
-<!-- ================================================= -->
-<!-- HERO -->
-<!-- ================================================= -->
-
 <section class="hero">
-
-<div class="hero-content">
-
-<div class="hero-small"
-data-en="LINKVISION SHOP"
-data-de="LINKVISION SHOP">
-
-LINKVISION SHOP
-
-</div>
-
-
-<h1>
-
-FIND YOUR<br>
-
-<span>STYLE.</span>
-
-</h1>
-
-
-<p
-data-en="Discover fashion, accessories and fragrances selected for your style."
-data-de="Entdecke Mode, Accessoires und Düfte, ausgewählt für deinen Style.">
-
-Discover fashion, accessories and fragrances selected for your style.
-
-</p>
-
-
-<a href="#unisex"
-class="hero-btn"
-data-en="EXPLORE PRODUCTS →"
-data-de="PRODUKTE ENTDECKEN →">
-
-EXPLORE PRODUCTS →
-
-</a>
-
-</div>
-
+  <small>LINKVISION SHOP</small>
+  <h1>FIND YOUR<br>STYLE.</h1>
+  <p id="heroText">
+    Discover fashion, accessories and lifestyle products selected for you.
+  </p>
 </section>
 
-
-
-<!-- ================================================= -->
-<!-- FILTER -->
-<!-- ================================================= -->
-
-<div class="category-bar">
-
-<div class="category-inner">
-
-<button class="filter active"
-onclick="filterProducts('all',this)"
-data-en="ALL"
-data-de="ALLE">
-
-ALL
-
-</button>
-
-
-<button class="filter"
-onclick="filterProducts('unisex',this)"
-data-en="UNISEX"
-data-de="UNISEX">
-
-UNISEX
-
-</button>
-
-
-<button class="filter"
-onclick="filterProducts('men',this)"
-data-en="MEN"
-data-de="HERREN">
-
-MEN
-
-</button>
-
-
-<button class="filter"
-onclick="filterProducts('women',this)"
-data-en="WOMEN"
-data-de="DAMEN">
-
-WOMEN
-
-</button>
-
-
-<button class="filter"
-onclick="filterProducts('accessories',this)"
-data-en="ACCESSORIES"
-data-de="ACCESSOIRES">
-
-ACCESSORIES
-
-</button>
-
-
-<button class="filter"
-onclick="filterProducts('perfume',this)"
-data-en="PERFUME"
-data-de="PARFUM">
-
-PERFUME
-
-</button>
-
+<div class="filters">
+  <button class="filter active" onclick="filterProducts('all',this)" data-en="ALL" data-de="ALLE">ALL</button>
+  <button class="filter" onclick="filterProducts('unisex',this)" data-en="UNISEX" data-de="UNISEX">UNISEX</button>
+  <button class="filter" onclick="filterProducts('men',this)" data-en="MEN" data-de="HERREN">MEN</button>
+  <button class="filter" onclick="filterProducts('women',this)" data-en="WOMEN" data-de="DAMEN">WOMEN</button>
+  <button class="filter" onclick="filterProducts('accessories',this)" data-en="ACCESSORIES" data-de="ACCESSOIRES">ACCESSORIES</button>
+  <button class="filter" onclick="filterProducts('perfume',this)" data-en="PERFUME" data-de="PARFUM">PERFUME</button>
 </div>
 
-</div>
-
-
-
-<!-- ================================================= -->
-<!-- UNISEX -->
-<!-- ================================================= -->
-
-<section class="section" id="unisex">
-
-<div class="section-head">
-
-<h2
-data-en="Unisex"
-data-de="Unisex">
-
-Unisex
-
-</h2>
-
-<p
-data-en="EVERYONE"
-data-de="FÜR ALLE">
-
-EVERYONE
-
-</p>
-
-</div>
-
-
-<div class="products">
-
-
-<!-- PRODUCT 01 -->
-
-<article class="product" data-category="unisex">
-
-<div class="image-box">
-
-<img
-src="images/product1.jpg"
-class="product-image"
-alt="Product 01">
-
-<div class="image-fallback">
-LINKVISION
-</div>
-
-</div>
-
-<div class="product-info">
-
-<div class="category">
-UNISEX
-</div>
-
-<h3>Product 01</h3>
-
-<div class="product-bottom">
-
-<span class="price">
-Amazon
-</span>
-
-<a
-href="https://amzn.to/3T3rEAT"
-target="_blank"
-rel="nofollow sponsored noopener"
-class="view-btn">
-
-<span
-data-en="View →"
-data-de="Ansehen →">
-
-View →
-
-</span>
-
-</a>
-
-</div>
-</div>
-
-</article>
-
-
-<!-- PRODUCT 02 -->
-
-<article class="product" data-category="unisex">
-
-<div class="image-box">
-
-<img
-src="images/product2.jpg"
-class="product-image"
-alt="Product 02">
-
-<div class="image-fallback">
-LINKVISION
-</div>
-
-</div>
-
-<div class="product-info">
-
-<div class="category">UNISEX</div>
-
-<h3>Product 02</h3>
-
-<div class="product-bottom">
-
-<span class="price">Amazon</span>
-
-<a
-href="https://amzn.to/4rziwAV"
-target="_blank"
-rel="nofollow sponsored noopener"
-class="view-btn">
-
-<span data-en="View →"
-data-de="Ansehen →">
-View →
-</span>
-
-</a>
-
-</div>
-</div>
-
-</article>
-
-
-<!-- PRODUCT 03 -->
-
-<article class="product" data-category="unisex">
-
-<div class="image-box">
-
-<img src="images/product3.jpg"
-class="product-image"
-alt="Product 03">
-
-<div class="image-fallback">
-LINKVISION
-</div>
-
-</div>
-
-<div class="product-info">
-
-<div class="category">UNISEX</div>
-
-<h3>Product 03</h3>
-
-<div class="product-bottom">
-
-<span class="price">Amazon</span>
-
-<a href="https://amzn.to/3SSoJLk"
-target="_blank"
-rel="nofollow sponsored noopener"
-class="view-btn">
-
-<span data-en="View →"
-data-de="Ansehen →">
-View →
-</span>
-
-</a>
-
-</div>
-</div>
-
-</article>
-
-
-<!-- PRODUCT 04 -->
-
-<article class="product" data-category="unisex">
-
-<div class="image-box">
-<img src="images/product4.jpg"
-class="product-image"
-alt="Product 04">
-
-<div class="image-fallback">LINKVISION</div>
-</div>
-
-<div class="product-info">
-
-<div class="category">UNISEX</div>
-
-<h3>Product 04</h3>
-
-<div class="product-bottom">
-
-<span class="price">Amazon</span>
-
-<a href="https://amzn.to/4huuwjo"
-target="_blank"
-rel="nofollow sponsored noopener"
-class="view-btn">
-
-<span data-en="View →"
-data-de="Ansehen →">
-View →
-</span>
-
-</a>
-
-</div>
-</div>
-
-</article>
-
-
-<!-- PRODUCT 05 -->
-
-<article class="product" data-category="unisex">
-
-<div class="image-box">
-<img src="images/product5.jpg"
-class="product-image"
-alt="Product 05">
-
-<div class="image-fallback">LINKVISION</div>
-</div>
-
-<div class="product-info">
-
-<div class="category">UNISEX</div>
-
-<h3>Product 05</h3>
-
-<div class="product-bottom">
-
-<span class="price">Amazon</span>
-
-<a href="https://amzn.to/4cNLmao"
-target="_blank"
-rel="nofollow sponsored noopener"
-class="view-btn">
-
-<span data-en="View →"
-data-de="Ansehen →">
-View →
-</span>
-
-</a>
-
-</div>
-</div>
-
-</article>
-
-
-<!-- PRODUCT 06 -->
-
-<article class="product" data-category="unisex">
-
-<div class="image-box">
-<img src="images/product6.jpg"
-class="product-image"
-alt="Product 06">
-
-<div class="image-fallback">LINKVISION</div>
-</div>
-
-<div class="product-info">
-
-<div class="category">UNISEX</div>
-
-<h3>Product 06</h3>
-
-<div class="product-bottom">
-
-<span class="price">Amazon</span>
-
-<a href="https://amzn.to/4gXHeHr"
-target="_blank"
-rel="nofollow sponsored noopener"
-class="view-btn">
-
-<span data-en="View →"
-data-de="Ansehen →">
-View →
-</span>
-
-</a>
-
-</div>
-</div>
-
-</article>
-
-
-<!-- PRODUCT 07 -->
-
-<article class="product" data-category="unisex">
-
-<div class="image-box">
-<img src="images/product7.jpg"
-class="product-image"
-alt="Product 07">
-
-<div class="image-fallback">LINKVISION</div>
-</div>
-
-<div class="product-info">
-
-<div class="category">UNISEX</div>
-
-<h3>Product 07</h3>
-
-<div class="product-bottom">
-
-<span class="price">Amazon</span>
-
-<a href="https://amzn.to/4h83XiH"
-target="_blank"
-rel="nofollow sponsored noopener"
-class="view-btn">
-
-<span data-en="View →"
-data-de="Ansehen →">
-View →
-</span>
-
-</a>
-
-</div>
-</div>
-
-</article>
-
-</div>
-
-</section>
-
-
-<div class="section-divider"></div>
-
-
-
-<!-- ================================================= -->
-<!-- MEN -->
-<!-- ================================================= -->
-
-<section class="section" id="men">
-
-<div class="section-head">
-
-<h2 data-en="Men"
-data-de="Herren">
-Men
-</h2>
-
-<p data-en="HERREN"
-data-de="HERREN">
-HERREN
-</p>
-
-</div>
-
-
-<div class="products">
-
-
-<!-- 08 -->
-
-<article class="product" data-category="men">
-
-<div class="image-box">
-<img src="images/product8.jpg"
-class="product-image"
-alt="Product 08">
-<div class="image-fallback">LINKVISION</div>
-</div>
-
-<div class="product-info">
-
-<div class="category">MEN</div>
-
-<h3>Product 08</h3>
-
-<div class="product-bottom">
-
-<span class="price">Amazon</span>
-
-<a href="https://amzn.to/4AbvVCR"
-target="_blank"
-rel="nofollow sponsored noopener"
-class="view-btn">
-<span data-en="View →"
-data-de="Ansehen →">
-View →
-</span>
-</a>
-
-</div>
-</div>
-
-</article>
-
-
-<!-- 09 -->
-
-<article class="product" data-category="men">
-
-<div class="image-box">
-<img src="images/product9.jpg"
-class="product-image"
-alt="Product 09">
-<div class="image-fallback">LINKVISION</div>
-</div>
-
-<div class="product-info">
-
-<div class="category">MEN</div>
-
-<h3>Product 09</h3>
-
-<div class="product-bottom">
-
-<span class="price">Amazon</span>
-
-<a href="https://amzn.to/3TxfYGI"
-target="_blank"
-rel="nofollow sponsored noopener"
-class="view-btn">
-<span data-en="View →"
-data-de="Ansehen →">
-View →
-</span>
-</a>
-
-</div>
-</div>
-
-</article>
-
-
-<!-- 10 -->
-
-<article class="product" data-category="men">
-
-<div class="image-box">
-<img src="images/product10.jpg"
-class="product-image"
-alt="Product 10">
-<div class="image-fallback">LINKVISION</div>
-</div>
-
-<div class="product-info">
-
-<div class="category">MEN</div>
-
-<h3>Product 10</h3>
-
-<div class="product-bottom">
-
-<span class="price">Amazon</span>
-
-<a href="https://amzn.to/3UMHHUf"
-target="_blank"
-rel="nofollow sponsored noopener"
-class="view-btn">
-<span data-en="View →"
-data-de="Ansehen →">
-View →
-</span>
-</a>
-
-</div>
-</div>
-
-</article>
-
-
-<!-- 11 -->
-
-<article class="product" data-category="men">
-
-<div class="image-box">
-<img src="images/product11.jpg"
-class="product-image"
-alt="Product 11">
-<div class="image-fallback">LINKVISION</div>
-</div>
-
-<div class="product-info">
-
-<div class="category">MEN</div>
-
-<h3>Product 11</h3>
-
-<div class="product-bottom">
-
-<span class="price">Amazon</span>
-
-<a href="https://amzn.to/3VeuvaI"
-target="_blank"
-rel="nofollow sponsored noopener"
-class="view-btn">
-<span data-en="View →"
-data-de="Ansehen →">
-View →
-</span>
-</a>
-
-</div>
-</div>
-
-</article>
-
-
-<!-- 12 -->
-
-<article class="product" data-category="men">
-
-<div class="image-box">
-<img src="images/product12.jpg"
-class="product-image"
-alt="Product 12">
-<div class="image-fallback">LINKVISION</div>
-</div>
-
-<div class="product-info">
-
-<div class="category">MEN</div>
-
-<h3>Product 12</h3>
-
-<div class="product-bottom">
-
-<span class="price">Amazon</span>
-
-<a href="https://amzn.to/4rewRCz"
-target="_blank"
-rel="nofollow sponsored noopener"
-class="view-btn">
-<span data-en="View →"
-data-de="Ansehen →">
-View →
-</span>
-</a>
-
-</div>
-</div>
-
-</article>
-
-
-<!-- 13 -->
-
-<article class="product" data-category="men">
-
-<div class="image-box">
-<img src="images/product13.jpg"
-class="product-image"
-alt="Product 13">
-<div class="image-fallback">LINKVISION</div>
-</div>
-
-<div class="product-info">
-
-<div class="category">MEN</div>
-
-<h3>Product 13</h3>
-
-<div class="product-bottom">
-
-<span class="price">Amazon</span>
-
-<a href="https://amzn.to/4h85wx5"
-target="_blank"
-rel="nofollow sponsored noopener"
-class="view-btn">
-<span data-en="View →"
-data-de="Ansehen →">
-View →
-</span>
-</a>
-
-</div>
-</div>
-
-</article>
-
-
-<!-- 14 -->
-
-<article class="product" data-category="men">
-
-<div class="image-box">
-<img src="images/product14.jpg"
-class="product-image"
-alt="Product 14">
-<div class="image-fallback">LINKVISION</div>
-</div>
-
-<div class="product-info">
-
-<div class="category">MEN</div>
-
-<h3>Product 14</h3>
-
-<div class="product-bottom">
-
-<span class="price">Amazon</span>
-
-<a href="https://amzn.to/4xU0USl"
-target="_blank"
-rel="nofollow sponsored noopener"
-class="view-btn">
-<span data-en="View →"
-data-de="Ansehen →">
-View →
-</span>
-</a>
-
-</div>
-</div>
-
-</article>
-
-</div>
-
-</section>
-
-
-<div class="section-divider"></div>
-
-
-
-<!-- ================================================= -->
-<!-- WOMEN -->
-<!-- ================================================= -->
-
-<section class="section" id="women">
-
-<div class="section-head">
-
-<h2 data-en="Women"
-data-de="Damen">
-Women
-</h2>
-
-<p data-en="DAMEN"
-data-de="DAMEN">
-DAMEN
-</p>
-
-</div>
-
-
-<div class="products">
-
-
-<!-- 15 -->
-
-<article class="product" data-category="women">
-
-<div class="image-box">
-<img src="images/product15.jpg"
-class="product-image"
-alt="Product 15">
-<div class="image-fallback">LINKVISION</div>
-</div>
-
-<div class="product-info">
-
-<div class="category">WOMEN</div>
-
-<h3>Product 15</h3>
-
-<div class="product-bottom">
-
-<span class="price">Amazon</span>
-
-<a href="https://amzn.to/4cPdYQz"
-target="_blank"
-rel="nofollow sponsored noopener"
-class="view-btn">
-<span data-en="View →"
-data-de="Ansehen →">
-View →
-</span>
-</a>
-
-</div>
-</div>
-
-</article>
-
-
-<!-- 16 -->
-
-<article class="product" data-category="women">
-
-<div class="image-box">
-<img src="images/product16.jpg"
-class="product-image"
-alt="Product 16">
-<div class="image-fallback">LINKVISION</div>
-</div>
-
-<div class="product-info">
-
-<div class="category">WOMEN</div>
-
-<h3>Product 16</h3>
-
-<div class="product-bottom">
-
-<span class="price">Amazon</span>
-
-<a href="https://amzn.to/4gVHIxJ"
-target="_blank"
-rel="nofollow sponsored noopener"
-class="view-btn">
-<span data-en="View →"
-data-de="Ansehen →">
-View →
-</span>
-</a>
-
-</div>
-</div>
-
-</article>
-
-
-<!-- 17 -->
-
-<article class="product" data-category="women">
-
-<div class="image-box">
-<img src="images/product17.jpg"
-class="product-image"
-alt="Product 17">
-<div class="image-fallback">LINKVISION</div>
-</div>
-
-<div class="product-info">
-
-<div class="category">WOMEN</div>
-
-<h3>Product 17</h3>
-
-<div class="product-bottom">
-
-<span class="price">Amazon</span>
-
-<a href="https://amzn.to/4cPeRJ3"
-target="_blank"
-rel="nofollow sponsored noopener"
-class="view-btn">
-<span data-en="View →"
-data-de="Ansehen →">
-View →
-</span>
-</a>
-
-</div>
-</div>
-
-</article>
-
-
-<!-- 18 -->
-
-<article class="product" data-category="women">
-
-<div class="image-box">
-<img src="images/product18.jpg"
-class="product-image"
-alt="Product 18">
-<div class="image-fallback">LINKVISION</div>
-</div>
-
-<div class="product-info">
-
-<div class="categor
-                <h3>Men's Cotton Underwear</h3>
-
-                <div class="product-bottom">
-                    <span class="price">Amazon</span>
+<main id="shop"></main>
+
+<footer>
+  © 2026 LINKVISION SHOP · Amazon PartnerNet
+</footer>
+
+<script>
+
+const products=[
+
+/* UNISEX */
+{img:1,cat:"unisex",name:"Streetwear Hoodie",price:"€16.00",link:"https://amzn.to/3T3rEAT"},
+{img:2,cat:"unisex",name:"Urban Beanie",price:"€20.00",link:"https://amzn.to/4rziwAV"},
+{img:3,cat:"unisex",name:"Streetwear Essential",price:"€18.00",link:"https://amzn.to/3SSoJLk"},
+{img:4,cat:"unisex",name:"Y2K Beanie",price:"€18.00",link:"https://amzn.to/4huuwjo"},
+{img:5,cat:"unisex",name:"Urban Hoodie",price:"€29.00",link:"https://amzn.to/4cNLmao"},
+{img:6,cat:"unisex",name:"Everyday Streetwear",price:"€36.00",link:"https://amzn.to/4gXHeHr"},
+{img:7,cat:"unisex",name:"Printed Beanie",price:"€20.00",link:"https://amzn.to/4h83XiH"},
+
+/* MEN */
+{img:8,cat:"men",name:"Hooded Sweatshirt",price:"€38.00",link:"https://amzn.to/4AbvVCR"},
+{img:9,cat:"men",name:"Cotton Street T-Shirt",price:"€33.00",link:"https://amzn.to/3TxfYGI"},
+{img:10,cat:"men",name:"Premium Cotton T-Shirt",price:"€33.00",link:"https://amzn.to/3UMHHUf"},
+{img:11,cat:"men",name:"Casual Street T-Shirt",price:"€33.00",link:"https://amzn.to/3VeuvaI"},
+{img:12,cat:"men",name:"Modern Streetwear",price:"€29.00",link:"https://amzn.to/4rewRCz"},
+{img:13,cat:"men",name:"Everyday Streetwear",price:"€25.00",link:"https://amzn.to/4h85wx5"},
+{img:14,cat:"men",name:"Square Sunglasses",price:"€15.00",link:"https://amzn.to/4xU0USl"},
+
+/* WOMEN */
+{img:15,cat:"women",name:"Waist Chain Belt",price:"€14.00",link:"https://amzn.to/4cPdYQz"},
+{img:16,cat:"women",name:"Stainless Steel Bracelet",price:"€18.00",link:"https://amzn.to/4gVHIxJ"},
+{img:17,cat:"women",name:"Zip-Up Tracksuit",price:"€32.00",link:"https://amzn.to/4cPeRJ3"},
+{img:18,cat:"women",name:"Cotton Sweatpants",price:"€22.00",link:"https://amzn.to/4Ai67oK"},
+{img:19,cat:"women",name:"Urban Fashion Essential",price:"€25.00",link:"https://amzn.to/4gZ0eW4"},
+
+/* ACCESSORIES */
+{img:20,cat:"accessories",name:"Streetwear Cargo Shorts",price:"€24.00",link:"https://amzn.to/46XTTnM"},
+{img:21,cat:"accessories",name:"Classic Multipack",price:"€45.00",link:"https://amzn.to/3ULUhDc"},
+{img:22,cat:"accessories",name:"Minimal Wall Clock",price:"€30.00",link:"https://amzn.to/4xxThjr"},
+{img:23,cat:"accessories",name:"Sneaker Wall Decor",price:"€20.00",link:"https://amzn.to/4j83XBS"},
+{img:24,cat:"accessories",name:"Room Diffuser",price:"€25.00",link:"https://amzn.to/4j1wcSM"},
+{img:25,cat:"accessories",name:"Music Wall Poster",price:"€15.00",link:"https://amzn.to/4iy61Tw"},
+
+/* PERFUME */
+{img:26,cat:"perfume",name:"Eau de Parfum",price:"€29.00",link:"https://amzn.to/4cNUGLq"},
+{img:27,cat:"perfume",name:"Signature Fragrance",price:"€32.00",link:"https://amzn.to/4xxUCGZ"},
+{img:28,cat:"perfume",name:"Modern Fragrance",price:"€35.00",link:"https://amzn.to/4gXLdUq"},
+{img:29,cat:"perfume",name:"Everyday Eau de Parfum",price:"€28.00",link:"https://amzn.to/471rZHp"},
+{img:30,cat:"perfume",name:"Premium Fragrance",price:"€45.00",link:"https://amzn.to/46sbDrk"},
+{img:31,cat:"perfume",name:"Urban Signature Scent",price:"€39.00",link:"https://amzn.to/4AhDIz2"},
+{img:32,cat:"perfume",name:"Classic Fragrance",price:"€30.00",link:"https://amzn.to/4riRz4j"},
+{img:33,cat:"perfume",name:"Daily Signature Scent",price:"€27.00",link:"https://amzn.to/3T3DGu3"}
+
+];
+
+let language="en";
+let currentFilter="all";
+
+const labels={
+  en:{
+    unisex:"UNISEX",
+    men:"MEN",
+    women:"WOMEN",
+    accessories:"ACCESSORIES",
+    perfume:"PERFUME",
+    view:"View →",
+    hero:"Discover fashion, accessories and lifestyle products selected for you."
+  },
+  de:{
+    unisex:"UNISEX",
+    men:"HERREN",
+    women:"DAMEN",
+    accessories:"ACCESSOIRES",
+    perfume:"PARFUM",
+    view:"Ansehen →",
+    hero:"Entdecke ausgewählte Fashion-, Accessoire- und Lifestyle-Produkte."
+  }
+};
+
+function render(){
+
+  const shop=document.getElementById("shop");
+  shop.innerHTML="";
+
+  const cats=["unisex","men","women","accessories","perfume"];
+
+  cats.forEach(cat=>{
+
+    if(currentFilter!=="all" && currentFilter!==cat)return;
+
+    const list=products.filter(p=>p.cat===cat);
+    if(!list.length)return;
+
+    const section=document.createElement("section");
+    section.id=cat;
+
+    const title=document.createElement("h2");
+    title.className="category-title";
+    title.textContent=labels[language][cat];
+
+    const grid=document.createElement("div");
+    grid.className="products";
+
+    list.forEach(p=>{
+
+      const card=document.createElement("article");
+      card.className="product";
+
+      card.innerHTML=`
+        <div class="image-box">
+          <img
+            class="product-image"
+            src="images/product${p.img}.jpg"
+            alt="${p.name}"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='block'"
+          >
+          <div class="image-fallback" style="display:none">
+            LINKVISION
+          </div>
+        </div>
+
+        <div class="info">
+          <div class="tag">${labels[language][p.cat]}</div>
+          <div class="name">${p.name}</div>
+
+          <div class="bottom">
+            <div class="price">${p.price}</div>
+            <a
+              class="view"
+              href="${p.link}"
+              target="_blank"
+              rel="nofollow sponsored noopener"
+            >${labels[language].view}</a>
+          </div>
+        </div>
+      `;
+
+      grid.appendChild(card);
+    });
+
+    section.appendChild(title);
+    section.appendChild(grid);
+    shop.appendChild(section);
+  });
+}
+
+function filterProducts(category,button){
+
+  currentFilter=category;
+
+  document.querySelectorAll(".filter")
+    .forEach(b=>b.classList.remove("active"));
+
+  button.classList.add("active");
+
+  render();
+
+  if(category!=="all"){
+    const section=document.getElementById(category);
+    if(section){
+      setTimeout(()=>{
+        section.scrollIntoView({
+          behavior:"smooth",
+          block:"start"
+        });
+      },50);
+    }
+  }
+}
+
+function setLanguage(lang){
+
+  language=lang;
+
+  document.getElementById("enBtn")
+    .classList.toggle("active",lang==="en");
+
+  document.getElementById("deBtn")
+    .classList.toggle("active",lang==="de");
+
+  document.getElementById("heroText").textContent=
+    labels[lang].hero;
+
+  document.querySelectorAll(".filter").forEach(btn=>{
+    btn.textContent=btn.dataset[lang];
+  });
+
+  render();
+}
+
+render();
+
+</script>
+
+</body>
+</html>
