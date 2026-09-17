@@ -2,37 +2,74 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>LINKVISION SHOP</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="LINKVISION SHOP — Fashion, accessories and lifestyle.">
+<title>LINKVISION — SHOP</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
 :root{
-  --bg:#050505;
-  --card:#0b0b0b;
-  --line:#1d1d1d;
-  --muted:#777;
-  --soft:#aaa;
-  --white:#fff;
+  --bg:#080912;
+  --bg2:#0d1020;
+  --card:#111425;
+  --card2:#15192c;
+  --white:#ffffff;
+  --text:#f4f5fa;
+  --muted:#8d92a8;
+  --muted2:#666b80;
+  --line:rgba(255,255,255,.09);
+  --blue:#5b8cff;
+  --purple:#8b5cf6;
+  --pink:#d946ef;
 }
 
-html{scroll-behavior:smooth}
+html{
+  scroll-behavior:smooth;
+}
 
 body{
-  background:var(--bg);
-  color:var(--white);
-  font-family:Inter,Arial,Helvetica,sans-serif;
   min-height:100vh;
+  overflow-x:hidden;
+  color:var(--text);
+  font-family:Inter,Arial,Helvetica,sans-serif;
+  background:
+    radial-gradient(circle at 10% 0%,rgba(91,140,255,.13),transparent 28%),
+    radial-gradient(circle at 90% 10%,rgba(139,92,246,.13),transparent 30%),
+    linear-gradient(135deg,#070811,#0b0d18 50%,#080912);
 }
+
+/* BACKGROUND GLOW */
 
 body:before{
   content:"";
   position:fixed;
-  inset:0;
+  width:450px;
+  height:450px;
+  left:-250px;
+  top:35%;
+  border-radius:50%;
+  background:rgba(91,140,255,.055);
+  filter:blur(100px);
   pointer-events:none;
-  background:
-    radial-gradient(circle at 50% -10%,#171717 0,transparent 38%);
+  z-index:-1;
+}
+
+body:after{
+  content:"";
+  position:fixed;
+  width:450px;
+  height:450px;
+  right:-250px;
+  bottom:5%;
+  border-radius:50%;
+  background:rgba(217,70,239,.045);
+  filter:blur(110px);
+  pointer-events:none;
   z-index:-1;
 }
 
@@ -41,17 +78,17 @@ body:before{
 header{
   position:sticky;
   top:0;
-  z-index:50;
-  background:rgba(5,5,5,.82);
-  backdrop-filter:blur(22px);
-  -webkit-backdrop-filter:blur(22px);
-  border-bottom:1px solid rgba(255,255,255,.07);
+  z-index:100;
+  border-bottom:1px solid var(--line);
+  background:rgba(7,8,17,.72);
+  backdrop-filter:blur(25px);
+  -webkit-backdrop-filter:blur(25px);
 }
 
 .nav{
-  max-width:1300px;
+  width:min(1320px,100%);
+  min-height:76px;
   margin:auto;
-  min-height:72px;
   padding:0 25px;
   display:flex;
   align-items:center;
@@ -60,89 +97,126 @@ header{
 }
 
 .logo{
+  white-space:nowrap;
   font-size:21px;
   font-weight:950;
-  letter-spacing:2px;
-  white-space:nowrap;
+  letter-spacing:2.5px;
 }
 
 .logo span{
-  color:#666;
+  color:#85899b;
   font-weight:700;
 }
+
+/* NAVIGATION */
 
 .nav-links{
   display:flex;
   align-items:center;
-  gap:24px;
+  gap:25px;
   list-style:none;
 }
 
 .nav-links a{
-  color:#888;
+  position:relative;
+  color:#9297aa;
   text-decoration:none;
   font-size:10px;
   font-weight:900;
   letter-spacing:1.5px;
-  transition:.2s;
+  transition:.25s;
 }
 
 .nav-links a:hover{
   color:#fff;
 }
 
+.nav-links a:after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-8px;
+  width:0;
+  height:2px;
+  border-radius:10px;
+  background:linear-gradient(90deg,var(--blue),var(--purple));
+  transition:.25s;
+}
+
+.nav-links a:hover:after{
+  width:100%;
+}
+
+/* LANGUAGE */
+
 .languages{
   display:flex;
-  align-items:center;
   gap:3px;
   padding:4px;
-  border:1px solid #222;
-  border-radius:9px;
-  background:#0a0a0a;
+  border:1px solid var(--line);
+  border-radius:10px;
+  background:rgba(255,255,255,.035);
 }
 
 .languages button{
   border:0;
+  color:#6f7488;
   background:transparent;
-  color:#666;
+  border-radius:7px;
+  padding:7px 9px;
   cursor:pointer;
   font-size:10px;
   font-weight:900;
-  padding:6px 8px;
-  border-radius:6px;
 }
 
 .languages button.active{
-  background:#fff;
-  color:#000;
+  color:#fff;
+  background:linear-gradient(135deg,var(--blue),var(--purple));
+  box-shadow:0 5px 18px rgba(91,140,255,.2);
 }
 
 /* HERO */
 
 .hero{
-  max-width:1300px;
+  position:relative;
+  width:min(1320px,100%);
   margin:auto;
-  padding:115px 25px 85px;
+  padding:125px 25px 85px;
 }
 
 .hero small{
-  color:#666;
-  font-size:10px;
+  display:inline-block;
+  padding:9px 14px;
+  border:1px solid rgba(139,92,246,.3);
+  border-radius:30px;
+  background:rgba(139,92,246,.07);
+  color:#b9a9ff;
+  font-size:9px;
   font-weight:900;
-  letter-spacing:5px;
+  letter-spacing:4px;
 }
 
 .hero h1{
-  margin:20px 0 25px;
-  font-size:clamp(52px,9vw,105px);
-  line-height:.86;
-  font-weight:950;
+  margin:25px 0 27px;
+  font-size:clamp(55px,9vw,112px);
+  line-height:.84;
   letter-spacing:-6px;
+  font-weight:950;
+  background:linear-gradient(
+    110deg,
+    #fff 10%,
+    #e2e5ff 43%,
+    #a993ff 72%,
+    #72a0ff
+  );
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
 }
 
 .hero p{
-  max-width:530px;
-  color:#777;
+  max-width:560px;
+  color:#858a9f;
   font-size:14px;
   line-height:1.8;
 }
@@ -150,48 +224,53 @@ header{
 /* FILTERS */
 
 .filters{
-  max-width:1300px;
+  width:min(1320px,100%);
   margin:auto;
-  padding:0 25px 35px;
+  padding:0 25px 42px;
   display:flex;
-  gap:8px;
   flex-wrap:wrap;
+  gap:9px;
 }
 
 .filter{
-  background:#090909;
-  border:1px solid #222;
-  color:#777;
-  padding:11px 17px;
-  border-radius:8px;
+  padding:11px 18px;
+  border:1px solid var(--line);
+  border-radius:30px;
+  background:rgba(255,255,255,.035);
+  color:#8e93a7;
   cursor:pointer;
   font-size:10px;
   font-weight:900;
   letter-spacing:1px;
-  transition:.2s;
+  transition:.25s;
 }
 
 .filter:hover{
-  border-color:#444;
   color:#fff;
+  border-color:rgba(139,92,246,.45);
+  background:rgba(139,92,246,.08);
+  transform:translateY(-2px);
 }
 
 .filter.active{
-  background:#fff;
-  border-color:#fff;
-  color:#000;
+  color:#fff;
+  border-color:transparent;
+  background:linear-gradient(135deg,var(--blue),var(--purple));
+  box-shadow:0 8px 25px rgba(91,140,255,.2);
 }
 
-/* SHOP */
+/* MAIN */
 
 main{
-  max-width:1300px;
+  width:min(1320px,100%);
   margin:auto;
   padding:0 25px 100px;
 }
 
+/* CATEGORY */
+
 .category-title{
-  margin:55px 0 25px;
+  margin:58px 0 27px;
   display:flex;
   align-items:center;
   gap:18px;
@@ -199,67 +278,93 @@ main{
   font-size:22px;
   font-weight:950;
   letter-spacing:3px;
-  text-transform:uppercase;
 }
 
 .category-title:after{
   content:"";
   height:1px;
-  background:#292929;
   flex:1;
+  background:linear-gradient(
+    90deg,
+    rgba(139,92,246,.5),
+    rgba(255,255,255,.08),
+    transparent
+  );
 }
 
-/* PRODUCTS */
+/* GRID */
 
 .products{
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:16px;
+  gap:18px;
 }
 
+/* CARD */
+
 .product{
-  position:relative;
   overflow:hidden;
-  background:linear-gradient(145deg,#0d0d0d,#080808);
-  border:1px solid #181818;
-  border-radius:15px;
-  transition:
-    transform .3s ease,
-    border-color .3s ease,
-    box-shadow .3s ease;
+  border:1px solid rgba(255,255,255,.075);
+  border-radius:18px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.055),
+      rgba(255,255,255,.018)
+    );
+  box-shadow:
+    0 10px 35px rgba(0,0,0,.2),
+    inset 0 1px rgba(255,255,255,.035);
+  transition:.35s ease;
 }
 
 .product:hover{
-  transform:translateY(-6px);
-  border-color:#343434;
-  box-shadow:0 15px 40px rgba(0,0,0,.4);
+  transform:translateY(-7px);
+  border-color:rgba(139,92,246,.38);
+  box-shadow:
+    0 20px 50px rgba(0,0,0,.35),
+    0 0 35px rgba(139,92,246,.08);
 }
 
-/* IMAGE */
+/* PHOTO AREA */
 
 .image-box{
   position:relative;
   height:315px;
-  background:#101010;
+  padding:15px;
   overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      rgba(139,92,246,.1),
+      transparent 58%
+    ),
+    #0d0f1b;
 }
 
-.image-box:after{
+.image-box:before{
   content:"";
   position:absolute;
   inset:0;
-  background:linear-gradient(
-    to bottom,
-    transparent 65%,
-    rgba(0,0,0,.22)
-  );
+  background:
+    linear-gradient(
+      135deg,
+      rgba(91,140,255,.045),
+      transparent 45%,
+      rgba(217,70,239,.035)
+    );
   pointer-events:none;
 }
 
 .product-image{
+  position:relative;
+  z-index:2;
   width:100%;
   height:100%;
-  object-fit:cover;
+  object-fit:contain;
   display:block;
   transition:transform .45s ease;
 }
@@ -269,14 +374,14 @@ main{
 }
 
 .image-fallback{
-  width:100%;
-  height:100%;
+  position:absolute;
+  inset:0;
   align-items:center;
   justify-content:center;
-  color:#333;
+  color:#34384c;
   font-size:11px;
   font-weight:900;
-  letter-spacing:3px;
+  letter-spacing:4px;
 }
 
 /* INFO */
@@ -286,18 +391,19 @@ main{
 }
 
 .tag{
-  color:#666;
+  color:#8e94aa;
   font-size:8px;
   font-weight:900;
   letter-spacing:2px;
+  text-transform:uppercase;
 }
 
 .name{
-  margin:9px 0 18px;
-  min-height:38px;
-  color:#eee;
+  min-height:40px;
+  margin:9px 0 19px;
+  color:#f1f2f7;
   font-size:14px;
-  line-height:1.4;
+  line-height:1.45;
   font-weight:850;
 }
 
@@ -309,7 +415,7 @@ main{
 }
 
 .price{
-  color:#aaa;
+  color:#b9bdcc;
   font-size:12px;
   font-weight:800;
 }
@@ -318,45 +424,58 @@ main{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  min-width:76px;
-  padding:10px 13px;
-  background:#fff;
-  color:#000;
-  border-radius:7px;
+  min-width:82px;
+  padding:10px 14px;
+  border-radius:9px;
+  color:#fff;
   text-decoration:none;
   font-size:10px;
   font-weight:950;
-  transition:.2s;
+  background:linear-gradient(135deg,#5b8cff,#8b5cf6);
+  box-shadow:0 7px 20px rgba(91,140,255,.18);
+  transition:.25s;
 }
 
 .view:hover{
-  background:#ddd;
-  transform:translateX(2px);
+  transform:translateX(3px);
+  box-shadow:0 9px 25px rgba(139,92,246,.3);
 }
 
 /* FOOTER */
 
 footer{
-  border-top:1px solid #181818;
-  padding:35px 20px;
+  border-top:1px solid var(--line);
+  padding:38px 20px;
   text-align:center;
-  color:#444;
+  color:#505568;
   font-size:9px;
   letter-spacing:2px;
 }
 
-/* RESPONSIVE */
+/* TABLET */
 
-@media(max-width:1050px){
-  .nav-links{gap:13px}
-  .nav-links a{font-size:9px}
-  .products{grid-template-columns:repeat(3,1fr)}
+@media(max-width:1100px){
+
+  .nav-links{
+    gap:14px;
+  }
+
+  .nav-links a{
+    font-size:9px;
+  }
+
+  .products{
+    grid-template-columns:repeat(3,1fr);
+  }
 }
 
+/* MOBILE */
+
 @media(max-width:750px){
+
   .nav{
-    min-height:65px;
-    padding:0 17px;
+    min-height:68px;
+    padding:0 18px;
   }
 
   .nav-links{
@@ -364,7 +483,7 @@ footer{
   }
 
   .hero{
-    padding:80px 20px 60px;
+    padding:85px 20px 65px;
   }
 
   .hero h1{
@@ -372,30 +491,34 @@ footer{
   }
 
   .filters{
-    padding:0 20px 25px;
+    padding:0 20px 30px;
   }
 
   main{
-    padding:0 20px 70px;
+    padding:0 20px 75px;
   }
 
   .products{
     grid-template-columns:repeat(2,1fr);
-    gap:12px;
+    gap:13px;
   }
 
   .image-box{
     height:250px;
+    padding:10px;
   }
 }
 
+/* SMALL MOBILE */
+
 @media(max-width:480px){
+
   .logo{
-    font-size:17px;
+    font-size:16px;
   }
 
   .hero h1{
-    font-size:53px;
+    font-size:54px;
   }
 
   .products{
@@ -404,6 +527,7 @@ footer{
 
   .image-box{
     height:330px;
+    padding:15px;
   }
 
   .category-title{
@@ -458,44 +582,32 @@ Discover fashion, accessories and lifestyle products selected for you.
 <button class="filter active"
 onclick="filterProducts('all',this)"
 data-en="ALL"
-data-de="ALLE">
-ALL
-</button>
+data-de="ALLE">ALL</button>
 
 <button class="filter"
 onclick="filterProducts('unisex',this)"
 data-en="UNISEX"
-data-de="UNISEX">
-UNISEX
-</button>
+data-de="UNISEX">UNISEX</button>
 
 <button class="filter"
 onclick="filterProducts('men',this)"
 data-en="MEN"
-data-de="HERREN">
-MEN
-</button>
+data-de="HERREN">MEN</button>
 
 <button class="filter"
 onclick="filterProducts('women',this)"
 data-en="WOMEN"
-data-de="DAMEN">
-WOMEN
-</button>
+data-de="DAMEN">WOMEN</button>
 
 <button class="filter"
 onclick="filterProducts('accessories',this)"
 data-en="ACCESSORIES"
-data-de="ACCESSOIRES">
-ACCESSORIES
-</button>
+data-de="ACCESSOIRES">ACCESSORIES</button>
 
 <button class="filter"
 onclick="filterProducts('perfume',this)"
 data-en="PERFUME"
-data-de="PARFUM">
-PERFUME
-</button>
+data-de="PARFUM">PERFUME</button>
 
 </div>
 
@@ -522,7 +634,7 @@ link:"https://amzn.to/3T3rEAT"
 {
 img:2,
 cat:"unisex",
-name:"Urban Beanie",
+name:"Spider Beanie",
 price:"Amazon",
 link:"https://amzn.to/4rziwAV"
 },
@@ -538,7 +650,7 @@ link:"https://amzn.to/3SSoJLk"
 {
 img:4,
 cat:"unisex",
-name:"Y2K Beanie",
+name:"Y2K Letter Beanie",
 price:"Amazon",
 link:"https://amzn.to/4huuwjo"
 },
@@ -556,7 +668,7 @@ link:"https://amzn.to/4cNLmao"
 {
 img:6,
 cat:"men",
-name:"Everyday Streetwear",
+name:"Streetwear Outfit",
 price:"Amazon",
 link:"https://amzn.to/4gXHeHr"
 },
@@ -564,7 +676,7 @@ link:"https://amzn.to/4gXHeHr"
 {
 img:7,
 cat:"men",
-name:"Printed Beanie",
+name:"Beanie",
 price:"Amazon",
 link:"https://amzn.to/4h83XiH"
 },
@@ -580,7 +692,7 @@ link:"https://amzn.to/4AbvVCR"
 {
 img:9,
 cat:"men",
-name:"Cotton Street T-Shirt",
+name:"Cotton T-Shirt",
 price:"Amazon",
 link:"https://amzn.to/3TxfYGI"
 },
@@ -588,7 +700,7 @@ link:"https://amzn.to/3TxfYGI"
 {
 img:10,
 cat:"men",
-name:"Premium Cotton T-Shirt",
+name:"Premium T-Shirt",
 price:"Amazon",
 link:"https://amzn.to/3UMHHUf"
 },
@@ -596,7 +708,7 @@ link:"https://amzn.to/3UMHHUf"
 {
 img:11,
 cat:"men",
-name:"Casual Street T-Shirt",
+name:"Casual T-Shirt",
 price:"Amazon",
 link:"https://amzn.to/3VeuvaI"
 },
@@ -622,7 +734,7 @@ link:"https://amzn.to/4h85wx5"
 {
 img:17,
 cat:"women",
-name:"Zip-Up Tracksuit",
+name:"Women's Zip-Up Tracksuit",
 price:"Amazon",
 link:"https://amzn.to/4cPeRJ3"
 },
@@ -630,7 +742,7 @@ link:"https://amzn.to/4cPeRJ3"
 {
 img:18,
 cat:"women",
-name:"Cotton Sweatpants",
+name:"Women's Sweatpants",
 price:"Amazon",
 link:"https://amzn.to/4Ai67oK"
 },
@@ -638,7 +750,7 @@ link:"https://amzn.to/4Ai67oK"
 {
 img:19,
 cat:"women",
-name:"Urban Fashion Essential",
+name:"Women's Fashion Essential",
 price:"Amazon",
 link:"https://amzn.to/4gZ0eW4"
 },
@@ -680,7 +792,7 @@ link:"https://amzn.to/3ULUhDc"
 {
 img:21,
 cat:"accessories",
-name:"Minimal Wall Clock",
+name:"Wall Clock",
 price:"Amazon",
 link:"https://amzn.to/4xxThjr"
 },
@@ -704,7 +816,7 @@ link:"https://amzn.to/4j1wcSM"
 {
 img:24,
 cat:"accessories",
-name:"Music Wall Poster",
+name:"Music Poster",
 price:"Amazon",
 link:"https://amzn.to/4iy61Tw"
 },
@@ -786,6 +898,7 @@ women:"WOMEN",
 accessories:"ACCESSORIES",
 perfume:"PERFUME",
 view:"View →",
+amazon:"Amazon",
 hero:"Discover fashion, accessories and lifestyle products selected for you."
 },
 
@@ -796,6 +909,7 @@ women:"DAMEN",
 accessories:"ACCESSOIRES",
 perfume:"PARFUM",
 view:"Ansehen →",
+amazon:"Amazon",
 hero:"Entdecke ausgewählte Fashion-, Accessoire- und Lifestyle-Produkte."
 }
 
@@ -810,7 +924,7 @@ const shop=document.getElementById("shop");
 
 shop.innerHTML="";
 
-const cats=[
+const categories=[
 "unisex",
 "men",
 "women",
@@ -818,29 +932,33 @@ const cats=[
 "perfume"
 ];
 
-cats.forEach(cat=>{
+categories.forEach(category=>{
 
-if(currentFilter!=="all" && currentFilter!==cat)return;
+if(
+currentFilter!=="all" &&
+currentFilter!==category
+)return;
 
-const list=products.filter(p=>p.cat===cat);
+const list=products.filter(
+product=>product.cat===category
+);
 
 if(!list.length)return;
 
 const section=document.createElement("section");
 
-section.id=cat;
+section.id=category;
 
 const title=document.createElement("h2");
 
 title.className="category-title";
-
-title.textContent=labels[language][cat];
+title.textContent=labels[language][category];
 
 const grid=document.createElement("div");
 
 grid.className="products";
 
-list.forEach(p=>{
+list.forEach(product=>{
 
 const card=document.createElement("article");
 
@@ -852,12 +970,19 @@ card.innerHTML=`
 
 <img
 class="product-image"
-src="images/product${p.img}.jpg"
-alt="${p.name}"
-onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+src="images/product${product.img}.jpg"
+alt="${product.name}"
+loading="lazy"
+onerror="
+this.style.display='none';
+this.nextElementSibling.style.display='flex';
+"
 >
 
-<div class="image-fallback">
+<div
+class="image-fallback"
+style="display:none"
+>
 LINKVISION
 </div>
 
@@ -866,22 +991,22 @@ LINKVISION
 <div class="info">
 
 <div class="tag">
-${labels[language][p.cat]}
+${labels[language][product.cat]}
 </div>
 
 <div class="name">
-${p.name}
+${product.name}
 </div>
 
 <div class="bottom">
 
 <div class="price">
-${p.price}
+${product.price}
 </div>
 
 <a
 class="view"
-href="${p.link}"
+href="${product.link}"
 target="_blank"
 rel="nofollow sponsored noopener"
 >
@@ -899,7 +1024,6 @@ grid.appendChild(card);
 
 section.appendChild(title);
 section.appendChild(grid);
-
 shop.appendChild(section);
 
 });
@@ -912,7 +1036,9 @@ currentFilter=category;
 
 document
 .querySelectorAll(".filter")
-.forEach(b=>b.classList.remove("active"));
+.forEach(item=>{
+item.classList.remove("active");
+});
 
 button.classList.add("active");
 
@@ -938,8 +1064,8 @@ document
 
 document
 .querySelectorAll(".filter")
-.forEach(btn=>{
-btn.textContent=btn.dataset[lang];
+.forEach(button=>{
+button.textContent=button.dataset[lang];
 });
 
 render();
