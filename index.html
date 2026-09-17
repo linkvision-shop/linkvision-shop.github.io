@@ -7,52 +7,188 @@
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --bg:#050505;
+  --card:#0b0b0b;
+  --line:#1d1d1d;
+  --muted:#777;
+  --soft:#aaa;
+  --white:#fff;
+}
+
+html{scroll-behavior:smooth}
+
 body{
-  background:#050505;color:#fff;font-family:Arial,Helvetica,sans-serif;
-  min-height:100vh
+  background:var(--bg);
+  color:var(--white);
+  font-family:Inter,Arial,Helvetica,sans-serif;
+  min-height:100vh;
 }
+
+body:before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 50% -10%,#171717 0,transparent 38%);
+  z-index:-1;
+}
+
+/* HEADER */
+
 header{
-  position:sticky;top:0;z-index:20;
-  background:rgba(5,5,5,.92);backdrop-filter:blur(15px);
-  border-bottom:1px solid #191919
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(5,5,5,.82);
+  backdrop-filter:blur(22px);
+  -webkit-backdrop-filter:blur(22px);
+  border-bottom:1px solid rgba(255,255,255,.07);
 }
+
 .nav{
-  max-width:1250px;margin:auto;padding:20px 25px;
-  display:flex;align-items:center;justify-content:space-between;gap:20px
+  max-width:1300px;
+  margin:auto;
+  min-height:72px;
+  padding:0 25px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:25px;
 }
-.logo{font-size:22px;font-weight:900;letter-spacing:2px}
-.logo span{color:#777}
-.nav-links{display:flex;gap:25px;list-style:none}
-.nav-links a{color:#aaa;text-decoration:none;font-size:13px;font-weight:700}
-.nav-links a:hover{color:#fff}
+
+.logo{
+  font-size:21px;
+  font-weight:950;
+  letter-spacing:2px;
+  white-space:nowrap;
+}
+
+.logo span{
+  color:#666;
+  font-weight:700;
+}
+
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:24px;
+  list-style:none;
+}
+
+.nav-links a{
+  color:#888;
+  text-decoration:none;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:1.5px;
+  transition:.2s;
+}
+
+.nav-links a:hover{
+  color:#fff;
+}
+
+.languages{
+  display:flex;
+  align-items:center;
+  gap:3px;
+  padding:4px;
+  border:1px solid #222;
+  border-radius:9px;
+  background:#0a0a0a;
+}
+
 .languages button{
-  border:0;background:none;color:#777;cursor:pointer;
-  font-weight:700;margin-left:8px
+  border:0;
+  background:transparent;
+  color:#666;
+  cursor:pointer;
+  font-size:10px;
+  font-weight:900;
+  padding:6px 8px;
+  border-radius:6px;
 }
-.languages button.active{color:#fff}
+
+.languages button.active{
+  background:#fff;
+  color:#000;
+}
+
+/* HERO */
 
 .hero{
-  max-width:1250px;margin:auto;padding:100px 25px 65px
+  max-width:1300px;
+  margin:auto;
+  padding:115px 25px 85px;
 }
-.hero small{color:#777;letter-spacing:4px;font-size:11px}
+
+.hero small{
+  color:#666;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:5px;
+}
+
 .hero h1{
-  font-size:clamp(45px,8vw,90px);line-height:.9;
-  margin:20px 0;font-weight:900;letter-spacing:-4px
+  margin:20px 0 25px;
+  font-size:clamp(52px,9vw,105px);
+  line-height:.86;
+  font-weight:950;
+  letter-spacing:-6px;
 }
-.hero p{color:#777;max-width:520px;line-height:1.7}
+
+.hero p{
+  max-width:530px;
+  color:#777;
+  font-size:14px;
+  line-height:1.8;
+}
+
+/* FILTERS */
 
 .filters{
-  max-width:1250px;margin:auto;padding:0 25px 35px;
-  display:flex;gap:10px;flex-wrap:wrap
+  max-width:1300px;
+  margin:auto;
+  padding:0 25px 35px;
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
 }
-.filter{
-  background:#0c0c0c;border:1px solid #222;color:#888;
-  padding:10px 16px;border-radius:30px;cursor:pointer;
-  font-size:11px;font-weight:800
-}
-.filter:hover,.filter.active{background:#fff;color:#000}
 
-main{max-width:1250px;margin:auto;padding:0 25px 80px}
+.filter{
+  background:#090909;
+  border:1px solid #222;
+  color:#777;
+  padding:11px 17px;
+  border-radius:8px;
+  cursor:pointer;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:1px;
+  transition:.2s;
+}
+
+.filter:hover{
+  border-color:#444;
+  color:#fff;
+}
+
+.filter.active{
+  background:#fff;
+  border-color:#fff;
+  color:#000;
+}
+
+/* SHOP */
+
+main{
+  max-width:1300px;
+  margin:auto;
+  padding:0 25px 100px;
+}
 
 .category-title{
   margin:55px 0 25px;
@@ -61,79 +197,218 @@ main{max-width:1250px;margin:auto;padding:0 25px 80px}
   gap:18px;
   color:#fff;
   font-size:22px;
-  font-weight:900;
+  font-weight:950;
   letter-spacing:3px;
   text-transform:uppercase;
 }
 
-.category-title::after{
+.category-title:after{
   content:"";
   height:1px;
-  background:#333;
+  background:#292929;
   flex:1;
 }
+
+/* PRODUCTS */
+
 .products{
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:18px
+  gap:16px;
 }
+
 .product{
-  background:#0a0a0a;border:1px solid #171717;
-  border-radius:14px;overflow:hidden;
-  transition:.25s
+  position:relative;
+  overflow:hidden;
+  background:linear-gradient(145deg,#0d0d0d,#080808);
+  border:1px solid #181818;
+  border-radius:15px;
+  transition:
+    transform .3s ease,
+    border-color .3s ease,
+    box-shadow .3s ease;
 }
-.product:hover{transform:translateY(-5px);border-color:#333}
+
+.product:hover{
+  transform:translateY(-6px);
+  border-color:#343434;
+  box-shadow:0 15px 40px rgba(0,0,0,.4);
+}
+
+/* IMAGE */
 
 .image-box{
-  height:300px;background:#0e0e0e;
-  display:flex;align-items:center;justify-content:center;
-  overflow:hidden
-}
-.product-image{
-  width:100%;height:100%;object-fit:cover
-}
-.image-fallback{
-  color:#333;font-size:12px;letter-spacing:2px
+  position:relative;
+  height:315px;
+  background:#101010;
+  overflow:hidden;
 }
 
-.info{padding:17px}
+.image-box:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    to bottom,
+    transparent 65%,
+    rgba(0,0,0,.22)
+  );
+  pointer-events:none;
+}
+
+.product-image{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform .45s ease;
+}
+
+.product:hover .product-image{
+  transform:scale(1.045);
+}
+
+.image-fallback{
+  width:100%;
+  height:100%;
+  align-items:center;
+  justify-content:center;
+  color:#333;
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:3px;
+}
+
+/* INFO */
+
+.info{
+  padding:18px;
+}
+
 .tag{
-  color:#666;font-size:9px;font-weight:800;
-  letter-spacing:2px;text-transform:uppercase
+  color:#666;
+  font-size:8px;
+  font-weight:900;
+  letter-spacing:2px;
 }
+
 .name{
-  font-size:15px;font-weight:800;
-  margin:9px 0 17px;min-height:36px
+  margin:9px 0 18px;
+  min-height:38px;
+  color:#eee;
+  font-size:14px;
+  line-height:1.4;
+  font-weight:850;
 }
+
 .bottom{
-  display:flex;align-items:center;justify-content:space-between;gap:10px
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
 }
-.price{font-size:13px;color:#aaa}
+
+.price{
+  color:#aaa;
+  font-size:12px;
+  font-weight:800;
+}
+
 .view{
-  background:#fff;color:#000;text-decoration:none;
-  padding:9px 13px;border-radius:7px;
-  font-size:11px;font-weight:900
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:76px;
+  padding:10px 13px;
+  background:#fff;
+  color:#000;
+  border-radius:7px;
+  text-decoration:none;
+  font-size:10px;
+  font-weight:950;
+  transition:.2s;
 }
-.view:hover{background:#ddd}
+
+.view:hover{
+  background:#ddd;
+  transform:translateX(2px);
+}
+
+/* FOOTER */
 
 footer{
   border-top:1px solid #181818;
-  color:#555;text-align:center;padding:30px 20px;
-  font-size:10px;letter-spacing:1px
+  padding:35px 20px;
+  text-align:center;
+  color:#444;
+  font-size:9px;
+  letter-spacing:2px;
 }
 
-@media(max-width:950px){
+/* RESPONSIVE */
+
+@media(max-width:1050px){
+  .nav-links{gap:13px}
+  .nav-links a{font-size:9px}
   .products{grid-template-columns:repeat(3,1fr)}
 }
-@media(max-width:700px){
-  .nav-links{display:none}
-  .hero{padding-top:70px}
-  .products{grid-template-columns:repeat(2,1fr);gap:12px}
-  .image-box{height:230px}
+
+@media(max-width:750px){
+  .nav{
+    min-height:65px;
+    padding:0 17px;
+  }
+
+  .nav-links{
+    display:none;
+  }
+
+  .hero{
+    padding:80px 20px 60px;
+  }
+
+  .hero h1{
+    letter-spacing:-4px;
+  }
+
+  .filters{
+    padding:0 20px 25px;
+  }
+
+  main{
+    padding:0 20px 70px;
+  }
+
+  .products{
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+  }
+
+  .image-box{
+    height:250px;
+  }
 }
-@media(max-width:430px){
-  .products{grid-template-columns:1fr}
-  .image-box{height:300px}
+
+@media(max-width:480px){
+  .logo{
+    font-size:17px;
+  }
+
+  .hero h1{
+    font-size:53px;
+  }
+
+  .products{
+    grid-template-columns:1fr;
+  }
+
+  .image-box{
+    height:330px;
+  }
+
+  .category-title{
+    font-size:18px;
+  }
 }
 </style>
 </head>
@@ -141,45 +416,93 @@ footer{
 <body>
 
 <header>
-  <nav class="nav">
-    <div class="logo">LINKVISION <span>SHOP</span></div>
+<nav class="nav">
 
-    <ul class="nav-links">
-      <li><a href="#unisex">UNISEX</a></li>
-      <li><a href="#men">HERREN / MEN</a></li>
-      <li><a href="#women">DAMEN / WOMEN</a></li>
-      <li><a href="#accessories">ACCESSORIES</a></li>
-      <li><a href="#perfume">PARFUM / PERFUME</a></li>
-    </ul>
+<div class="logo">
+LINKVISION <span>SHOP</span>
+</div>
 
-    <div class="languages">
-      <button id="enBtn" class="active" onclick="setLanguage('en')">EN</button>
-      <button id="deBtn" onclick="setLanguage('de')">DE</button>
-    </div>
-  </nav>
+<ul class="nav-links">
+<li><a href="#unisex">UNISEX</a></li>
+<li><a href="#men">HERREN / MEN</a></li>
+<li><a href="#women">DAMEN / WOMEN</a></li>
+<li><a href="#accessories">ACCESSORIES</a></li>
+<li><a href="#perfume">PARFUM / PERFUME</a></li>
+</ul>
+
+<div class="languages">
+<button id="enBtn" class="active" onclick="setLanguage('en')">EN</button>
+<button id="deBtn" onclick="setLanguage('de')">DE</button>
+</div>
+
+</nav>
 </header>
 
 <section class="hero">
-  <small>LINKVISION SHOP</small>
-  <h1>FIND YOUR<br>STYLE.</h1>
-  <p id="heroText">
-    Discover fashion, accessories and lifestyle products selected for you.
-  </p>
+
+<small>LINKVISION SHOP</small>
+
+<h1>
+FIND YOUR<br>
+STYLE.
+</h1>
+
+<p id="heroText">
+Discover fashion, accessories and lifestyle products selected for you.
+</p>
+
 </section>
 
 <div class="filters">
-  <button class="filter active" onclick="filterProducts('all',this)" data-en="ALL" data-de="ALLE">ALL</button>
-  <button class="filter" onclick="filterProducts('unisex',this)" data-en="UNISEX" data-de="UNISEX">UNISEX</button>
-  <button class="filter" onclick="filterProducts('men',this)" data-en="MEN" data-de="HERREN">MEN</button>
-  <button class="filter" onclick="filterProducts('women',this)" data-en="WOMEN" data-de="DAMEN">WOMEN</button>
-  <button class="filter" onclick="filterProducts('accessories',this)" data-en="ACCESSORIES" data-de="ACCESSOIRES">ACCESSORIES</button>
-  <button class="filter" onclick="filterProducts('perfume',this)" data-en="PERFUME" data-de="PARFUM">PERFUME</button>
+
+<button class="filter active"
+onclick="filterProducts('all',this)"
+data-en="ALL"
+data-de="ALLE">
+ALL
+</button>
+
+<button class="filter"
+onclick="filterProducts('unisex',this)"
+data-en="UNISEX"
+data-de="UNISEX">
+UNISEX
+</button>
+
+<button class="filter"
+onclick="filterProducts('men',this)"
+data-en="MEN"
+data-de="HERREN">
+MEN
+</button>
+
+<button class="filter"
+onclick="filterProducts('women',this)"
+data-en="WOMEN"
+data-de="DAMEN">
+WOMEN
+</button>
+
+<button class="filter"
+onclick="filterProducts('accessories',this)"
+data-en="ACCESSORIES"
+data-de="ACCESSOIRES">
+ACCESSORIES
+</button>
+
+<button class="filter"
+onclick="filterProducts('perfume',this)"
+data-en="PERFUME"
+data-de="PARFUM">
+PERFUME
+</button>
+
 </div>
 
 <main id="shop"></main>
 
 <footer>
-  © 2026 LINKVISION SHOP · Amazon PartnerNet
+© 2026 LINKVISION SHOP · Amazon PartnerNet
 </footer>
 
 <script>
@@ -187,182 +510,440 @@ footer{
 const products=[
 
 /* UNISEX */
-{img:1,cat:"unisex",name:"Streetwear Hoodie",price:"€16.00",link:"https://amzn.to/3T3rEAT"},
-{img:2,cat:"unisex",name:"Urban Beanie",price:"€20.00",link:"https://amzn.to/4rziwAV"},
-{img:3,cat:"unisex",name:"Streetwear Essential",price:"€18.00",link:"https://amzn.to/3SSoJLk"},
-{img:4,cat:"unisex",name:"Y2K Beanie",price:"€18.00",link:"https://amzn.to/4huuwjo"},
 
-/* HERREN / MEN */
-{img:5,cat:"men",name:"Urban Hoodie",price:"€29.00",link:"https://amzn.to/4cNLmao"},
-{img:6,cat:"men",name:"Everyday Streetwear",price:"€36.00",link:"https://amzn.to/4gXHeHr"},
-{img:7,cat:"men",name:"Printed Beanie",price:"€20.00",link:"https://amzn.to/4h83XiH"},
-{img:8,cat:"men",name:"Hooded Sweatshirt",price:"€38.00",link:"https://amzn.to/4AbvVCR"},
-{img:9,cat:"men",name:"Cotton Street T-Shirt",price:"€33.00",link:"https://amzn.to/3TxfYGI"},
-{img:10,cat:"men",name:"Premium Cotton T-Shirt",price:"€33.00",link:"https://amzn.to/3UMHHUf"},
-{img:11,cat:"men",name:"Casual Street T-Shirt",price:"€33.00",link:"https://amzn.to/3VeuvaI"},
-{img:12,cat:"men",name:"Modern Streetwear",price:"€29.00",link:"https://amzn.to/4rewRCz"},
-{img:13,cat:"men",name:"Everyday Streetwear",price:"€25.00",link:"https://amzn.to/4h85wx5"},
-{img:20,cat:"men",name:"Cargo Shorts",price:"€24.00",link:"https://amzn.to/46XTTnM"},
+{
+img:1,
+cat:"unisex",
+name:"Streetwear Hoodie",
+price:"Amazon",
+link:"https://amzn.to/3T3rEAT"
+},
 
-/* DAMEN / WOMEN */
-{img:17,cat:"women",name:"Zip-Up Tracksuit",price:"€32.00",link:"https://amzn.to/4cPeRJ3"},
-{img:18,cat:"women",name:"Cotton Sweatpants",price:"€22.00",link:"https://amzn.to/4Ai67oK"},
-{img:19,cat:"women",name:"Urban Fashion Essential",price:"€25.00",link:"https://amzn.to/4gZ0eW4"},
+{
+img:2,
+cat:"unisex",
+name:"Urban Beanie",
+price:"Amazon",
+link:"https://amzn.to/4rziwAV"
+},
+
+{
+img:3,
+cat:"unisex",
+name:"Streetwear Essential",
+price:"Amazon",
+link:"https://amzn.to/3SSoJLk"
+},
+
+{
+img:4,
+cat:"unisex",
+name:"Y2K Beanie",
+price:"Amazon",
+link:"https://amzn.to/4huuwjo"
+},
+
+/* HERREN */
+
+{
+img:5,
+cat:"men",
+name:"Urban Hoodie",
+price:"Amazon",
+link:"https://amzn.to/4cNLmao"
+},
+
+{
+img:6,
+cat:"men",
+name:"Everyday Streetwear",
+price:"Amazon",
+link:"https://amzn.to/4gXHeHr"
+},
+
+{
+img:7,
+cat:"men",
+name:"Printed Beanie",
+price:"Amazon",
+link:"https://amzn.to/4h83XiH"
+},
+
+{
+img:8,
+cat:"men",
+name:"Hooded Sweatshirt",
+price:"Amazon",
+link:"https://amzn.to/4AbvVCR"
+},
+
+{
+img:9,
+cat:"men",
+name:"Cotton Street T-Shirt",
+price:"Amazon",
+link:"https://amzn.to/3TxfYGI"
+},
+
+{
+img:10,
+cat:"men",
+name:"Premium Cotton T-Shirt",
+price:"Amazon",
+link:"https://amzn.to/3UMHHUf"
+},
+
+{
+img:11,
+cat:"men",
+name:"Casual Street T-Shirt",
+price:"Amazon",
+link:"https://amzn.to/3VeuvaI"
+},
+
+{
+img:12,
+cat:"men",
+name:"Modern Streetwear",
+price:"Amazon",
+link:"https://amzn.to/4rewRCz"
+},
+
+{
+img:13,
+cat:"men",
+name:"Everyday Streetwear",
+price:"Amazon",
+link:"https://amzn.to/4h85wx5"
+},
+
+/* DAMEN */
+
+{
+img:17,
+cat:"women",
+name:"Zip-Up Tracksuit",
+price:"Amazon",
+link:"https://amzn.to/4cPeRJ3"
+},
+
+{
+img:18,
+cat:"women",
+name:"Cotton Sweatpants",
+price:"Amazon",
+link:"https://amzn.to/4Ai67oK"
+},
+
+{
+img:19,
+cat:"women",
+name:"Urban Fashion Essential",
+price:"Amazon",
+link:"https://amzn.to/4gZ0eW4"
+},
 
 /* ACCESSORIES */
-{img:14,cat:"accessories",name:"Square Sunglasses",price:"€15.00",link:"https://amzn.to/4xU0USl"},
-{img:15,cat:"accessories",name:"Waist Chain Belt",price:"€14.00",link:"https://amzn.to/4cPdYQz"},
-{img:16,cat:"accessories",name:"Stainless Steel Bracelet",price:"€18.00",link:"https://amzn.to/4gVHIxJ"},
-{img:21,cat:"accessories",name:"Classic Multipack",price:"€45.00",link:"https://amzn.to/3ULUhDc"},
-{img:22,cat:"accessories",name:"Minimal Wall Clock",price:"€30.00",link:"https://amzn.to/4xxThjr"},
-{img:23,cat:"accessories",name:"Sneaker Wall Decor",price:"€20.00",link:"https://amzn.to/4j83XBS"},
-{img:24,cat:"accessories",name:"Room Diffuser",price:"€25.00",link:"https://amzn.to/4j1wcSM"},
-{img:25,cat:"accessories",name:"Music Wall Poster",price:"€15.00",link:"https://amzn.to/4iy61Tw"},
+
+{
+img:14,
+cat:"accessories",
+name:"Square Sunglasses",
+price:"Amazon",
+link:"https://amzn.to/4xU0USl"
+},
+
+{
+img:15,
+cat:"accessories",
+name:"Waist Chain Belt",
+price:"Amazon",
+link:"https://amzn.to/4cPdYQz"
+},
+
+{
+img:16,
+cat:"accessories",
+name:"Stainless Steel Bracelet",
+price:"Amazon",
+link:"https://amzn.to/4gVHIxJ"
+},
+
+{
+img:20,
+cat:"accessories",
+name:"Classic Multipack",
+price:"Amazon",
+link:"https://amzn.to/3ULUhDc"
+},
+
+{
+img:21,
+cat:"accessories",
+name:"Minimal Wall Clock",
+price:"Amazon",
+link:"https://amzn.to/4xxThjr"
+},
+
+{
+img:22,
+cat:"accessories",
+name:"Sneaker Wall Decor",
+price:"Amazon",
+link:"https://amzn.to/4j83XBS"
+},
+
+{
+img:23,
+cat:"accessories",
+name:"Room Diffuser",
+price:"Amazon",
+link:"https://amzn.to/4j1wcSM"
+},
+
+{
+img:24,
+cat:"accessories",
+name:"Music Wall Poster",
+price:"Amazon",
+link:"https://amzn.to/4iy61Tw"
+},
 
 /* PERFUME */
-{img:26,cat:"perfume",name:"Eau de Parfum",price:"€29.00",link:"https://amzn.to/4cNUGLq"},
-{img:27,cat:"perfume",name:"Signature Fragrance",price:"€32.00",link:"https://amzn.to/4xxUCGZ"},
-{img:28,cat:"perfume",name:"Modern Fragrance",price:"€35.00",link:"https://amzn.to/4gXLdUq"},
-{img:29,cat:"perfume",name:"Everyday Eau de Parfum",price:"€28.00",link:"https://amzn.to/471rZHp"},
-{img:30,cat:"perfume",name:"Premium Fragrance",price:"€45.00",link:"https://amzn.to/46sbDrk"},
-{img:31,cat:"perfume",name:"Urban Signature Scent",price:"€39.00",link:"https://amzn.to/4AhDIz2"},
-{img:32,cat:"perfume",name:"Classic Fragrance",price:"€30.00",link:"https://amzn.to/4riRz4j"},
-{img:33,cat:"perfume",name:"Daily Signature Scent",price:"€27.00",link:"https://amzn.to/3T3DGu3"}
+
+{
+img:25,
+cat:"perfume",
+name:"Eau de Parfum",
+price:"Amazon",
+link:"https://amzn.to/4cNUGLq"
+},
+
+{
+img:26,
+cat:"perfume",
+name:"Signature Fragrance",
+price:"Amazon",
+link:"https://amzn.to/4xxUCGZ"
+},
+
+{
+img:27,
+cat:"perfume",
+name:"Modern Fragrance",
+price:"Amazon",
+link:"https://amzn.to/4gXLdUq"
+},
+
+{
+img:28,
+cat:"perfume",
+name:"Everyday Eau de Parfum",
+price:"Amazon",
+link:"https://amzn.to/471rZHp"
+},
+
+{
+img:29,
+cat:"perfume",
+name:"Premium Fragrance",
+price:"Amazon",
+link:"https://amzn.to/46sbDrk"
+},
+
+{
+img:30,
+cat:"perfume",
+name:"Urban Signature Scent",
+price:"Amazon",
+link:"https://amzn.to/4AhDIz2"
+},
+
+{
+img:31,
+cat:"perfume",
+name:"Classic Fragrance",
+price:"Amazon",
+link:"https://amzn.to/4riRz4j"
+},
+
+{
+img:32,
+cat:"perfume",
+name:"Daily Signature Scent",
+price:"Amazon",
+link:"https://amzn.to/3T3DGu3"
+}
 
 ];
+
+const labels={
+
+en:{
+unisex:"UNISEX",
+men:"MEN",
+women:"WOMEN",
+accessories:"ACCESSORIES",
+perfume:"PERFUME",
+view:"View →",
+hero:"Discover fashion, accessories and lifestyle products selected for you."
+},
+
+de:{
+unisex:"UNISEX",
+men:"HERREN",
+women:"DAMEN",
+accessories:"ACCESSOIRES",
+perfume:"PARFUM",
+view:"Ansehen →",
+hero:"Entdecke ausgewählte Fashion-, Accessoire- und Lifestyle-Produkte."
+}
+
+};
+
 let language="en";
 let currentFilter="all";
 
-const labels={
-  en:{
-    unisex:"UNISEX",
-    men:"MEN",
-    women:"WOMEN",
-    accessories:"ACCESSORIES",
-    perfume:"PERFUME",
-    view:"View →",
-    hero:"Discover fashion, accessories and lifestyle products selected for you."
-  },
-  de:{
-    unisex:"UNISEX",
-    men:"HERREN",
-    women:"DAMEN",
-    accessories:"ACCESSOIRES",
-    perfume:"PARFUM",
-    view:"Ansehen →",
-    hero:"Entdecke ausgewählte Fashion-, Accessoire- und Lifestyle-Produkte."
-  }
-};
-
 function render(){
 
-  const shop=document.getElementById("shop");
-  shop.innerHTML="";
+const shop=document.getElementById("shop");
 
-  const cats=["unisex","men","women","accessories","perfume"];
+shop.innerHTML="";
 
-  cats.forEach(cat=>{
+const cats=[
+"unisex",
+"men",
+"women",
+"accessories",
+"perfume"
+];
 
-    if(currentFilter!=="all" && currentFilter!==cat)return;
+cats.forEach(cat=>{
 
-    const list=products.filter(p=>p.cat===cat);
-    if(!list.length)return;
+if(currentFilter!=="all" && currentFilter!==cat)return;
 
-    const section=document.createElement("section");
-    section.id=cat;
+const list=products.filter(p=>p.cat===cat);
 
-    const title=document.createElement("h2");
-    title.className="category-title";
-    title.textContent=labels[language][cat];
+if(!list.length)return;
 
-    const grid=document.createElement("div");
-    grid.className="products";
+const section=document.createElement("section");
 
-    list.forEach(p=>{
+section.id=cat;
 
-      const card=document.createElement("article");
-      card.className="product";
+const title=document.createElement("h2");
 
-      card.innerHTML=`
-        <div class="image-box">
-          <img
-            class="product-image"
-            src="images/product${p.img}.jpg"
-            alt="${p.name}"
-            onerror="this.style.display='none';this.nextElementSibling.style.display='block'"
-          >
-          <div class="image-fallback" style="display:none">
-            LINKVISION
-          </div>
-        </div>
+title.className="category-title";
 
-        <div class="info">
-          <div class="tag">${labels[language][p.cat]}</div>
-          <div class="name">${p.name}</div>
+title.textContent=labels[language][cat];
 
-          <div class="bottom">
-            <div class="price">${p.price}</div>
-            <a
-              class="view"
-              href="${p.link}"
-              target="_blank"
-              rel="nofollow sponsored noopener"
-            >${labels[language].view}</a>
-          </div>
-        </div>
-      `;
+const grid=document.createElement("div");
 
-      grid.appendChild(card);
-    });
+grid.className="products";
 
-    section.appendChild(title);
-    section.appendChild(grid);
-    shop.appendChild(section);
-  });
+list.forEach(p=>{
+
+const card=document.createElement("article");
+
+card.className="product";
+
+card.innerHTML=`
+
+<div class="image-box">
+
+<img
+class="product-image"
+src="images/product${p.img}.jpg"
+alt="${p.name}"
+onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+>
+
+<div class="image-fallback">
+LINKVISION
+</div>
+
+</div>
+
+<div class="info">
+
+<div class="tag">
+${labels[language][p.cat]}
+</div>
+
+<div class="name">
+${p.name}
+</div>
+
+<div class="bottom">
+
+<div class="price">
+${p.price}
+</div>
+
+<a
+class="view"
+href="${p.link}"
+target="_blank"
+rel="nofollow sponsored noopener"
+>
+${labels[language].view}
+</a>
+
+</div>
+
+</div>
+`;
+
+grid.appendChild(card);
+
+});
+
+section.appendChild(title);
+section.appendChild(grid);
+
+shop.appendChild(section);
+
+});
+
 }
 
 function filterProducts(category,button){
 
-  currentFilter=category;
+currentFilter=category;
 
-  document.querySelectorAll(".filter")
-    .forEach(b=>b.classList.remove("active"));
+document
+.querySelectorAll(".filter")
+.forEach(b=>b.classList.remove("active"));
 
-  button.classList.add("active");
+button.classList.add("active");
 
-  render();
+render();
 
-  if(category!=="all"){
-    const section=document.getElementById(category);
-    if(section){
-      setTimeout(()=>{
-        section.scrollIntoView({
-          behavior:"smooth",
-          block:"start"
-        });
-      },50);
-    }
-  }
 }
 
 function setLanguage(lang){
 
-  language=lang;
+language=lang;
 
-  document.getElementById("enBtn")
-    .classList.toggle("active",lang==="en");
+document
+.getElementById("enBtn")
+.classList.toggle("active",lang==="en");
 
-  document.getElementById("deBtn")
-    .classList.toggle("active",lang==="de");
+document
+.getElementById("deBtn")
+.classList.toggle("active",lang==="de");
 
-  document.getElementById("heroText").textContent=
-    labels[lang].hero;
+document
+.getElementById("heroText")
+.textContent=labels[lang].hero;
 
-  document.querySelectorAll(".filter").forEach(btn=>{
-    btn.textContent=btn.dataset[lang];
-  });
+document
+.querySelectorAll(".filter")
+.forEach(btn=>{
+btn.textContent=btn.dataset[lang];
+});
 
-  render();
+render();
+
 }
 
 render();
